@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ShieldCheck, FileText, Lock, Scale, AlertCircle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -40,27 +41,20 @@ export default function LocalizedCompliancePage() {
             </p>
           </div>
 
-          {/* Right — Compliance Status Panel */}
-          <div className="lg:col-span-5 relative flex items-start justify-center">
-            <div className="relative w-full max-w-[420px] rounded-3xl border border-slate-200 p-5 shadow-xl bg-white text-left">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4 text-xs font-bold text-slate-400">
-                <span className="uppercase tracking-wider">Active Contract Audit</span>
-                <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full text-[10px]">6 Countries ✓</span>
-              </div>
-              <div className="space-y-2.5">
-                {countries.map((c) => (
-                  <div key={c.name} className="flex items-center gap-3 border border-slate-100 rounded-xl px-3.5 py-2.5 bg-slate-50/50">
-                    <span className="text-lg">{c.flag}</span>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[11px] font-bold text-slate-800">{c.name}</p>
-                      <p className="text-[9px] text-slate-400 truncate">{c.notes}</p>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                      <span className="text-[8px] font-bold text-emerald-700">Compliant</span>
-                    </div>
-                  </div>
-                ))}
+          {/* Right — Realistic Photo */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl group">
+              <Image
+                src="/localized-compliance.png"
+                alt="iStream Localized Compliance — Corporate lawyer reviewing international employment contracts"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1e30]/30 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-xl px-3 py-1.5 flex items-center gap-2 shadow">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] font-bold text-slate-800">30+ Countries Covered</span>
               </div>
             </div>
           </div>

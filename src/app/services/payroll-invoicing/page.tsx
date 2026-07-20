@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CreditCard, CheckCircle2, Globe, Banknote, BarChart3, RefreshCcw } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Globe, Banknote, BarChart3, RefreshCcw } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Payroll & Invoicing — iStream Solution",
@@ -38,38 +39,20 @@ export default function PayrollInvoicingPage() {
             </p>
           </div>
 
-          {/* Right — Payroll Ledger Visual */}
-          <div className="lg:col-span-5 relative flex items-start justify-center">
-            <div className="relative w-full max-w-[420px] rounded-3xl border border-slate-200 p-5 shadow-xl bg-white text-left">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4 text-xs font-bold text-slate-400">
-                <span className="uppercase tracking-wider">July 2025 — Payroll Run</span>
-                <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full text-[10px]">All Settled ✓</span>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { name: "Warsaw Hub (4 devs)", currency: "PLN", amount: "72,400.00", flag: "🇵🇱" },
-                  { name: "Bogota Hub (3 devs)", currency: "COP", amount: "28.5M", flag: "🇨🇴" },
-                  { name: "Lahore Hub (2 devs)", currency: "PKR", amount: "890,000", flag: "🇵🇰" },
-                  { name: "Bangalore Hub (1 dev)", currency: "INR", amount: "145,000", flag: "🇮🇳" },
-                ].map((row) => (
-                  <div key={row.name} className="flex items-center justify-between border border-slate-100 rounded-xl px-3.5 py-2.5 bg-slate-50/50">
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-base">{row.flag}</span>
-                      <div>
-                        <p className="text-[11px] font-bold text-slate-800">{row.name}</p>
-                        <p className="text-[9px] text-slate-400">{row.currency} disbursement</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-xs font-extrabold text-slate-700">{row.currency} {row.amount}</p>
-                      <p className="text-[8px] text-emerald-600 font-bold">Sent</p>
-                    </div>
-                  </div>
-                ))}
-                <div className="flex items-center justify-between border-t border-slate-200 pt-3 mt-1">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Your Invoice Total</span>
-                  <span className="text-sm font-extrabold text-[var(--primary)]">$18,400.00 USD</span>
-                </div>
+          {/* Right — Realistic Photo */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl group">
+              <Image
+                src="/payroll-invoicing.png"
+                alt="iStream Payroll & Invoicing — Finance professional reviewing global payroll dashboard"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1e30]/30 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-xl px-3 py-1.5 flex items-center gap-2 shadow">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] font-bold text-slate-800">30+ Currencies Supported</span>
               </div>
             </div>
           </div>
