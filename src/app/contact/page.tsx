@@ -77,7 +77,7 @@ export default function ContactPage() {
                 <label className="text-sm text-[var(--text-secondary)] mb-1.5 block">Project Details *</label>
                 <textarea required rows={5} placeholder="Tell us about the roles, tech stacks, or operational services you need..." className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-[var(--card-border)] text-[var(--foreground)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30 transition-all text-sm resize-none" />
               </div>
-              <button type="submit" className="w-full py-3.5 rounded-xl text-sm font-semibold text-[var(--foreground)] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(26,79,143,0.4)] transition-all duration-300 flex items-center justify-center gap-2">
+              <button type="submit" className="w-full py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(26,79,143,0.4)] transition-all duration-300 flex items-center justify-center gap-2">
                 {submitted ? <><CheckCircle className="w-4 h-4" /> Message Sent Successfully!</> : <><Send className="w-4 h-4" /> Send Message</>}
               </button>
             </form>

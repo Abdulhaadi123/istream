@@ -113,7 +113,7 @@ export default function ServicesPage() {
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] mb-8 leading-relaxed font-medium">
               Schedule a free 30-minute discovery call with our recruitment specialists. We will evaluate your hiring goals, stack requirements, and recommend the best setup.
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-[var(--foreground)] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(26,79,143,0.4)] hover:scale-[1.02] transition-all duration-300">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(26,79,143,0.4)] hover:scale-[1.02] transition-all duration-300">
               Book a Discovery Call <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

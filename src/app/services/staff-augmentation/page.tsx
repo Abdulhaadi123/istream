@@ -148,7 +148,7 @@ export default function StaffAugmentationPage() {
         <div className="text-center bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/5 border border-[var(--card-border)] rounded-2xl p-10">
           <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-bold text-[var(--foreground)] mb-4">Ready to Scale Your Team?</h2>
           <p className="text-[var(--text-secondary)] mb-6 max-w-lg mx-auto">Tell us the roles you need and we&apos;ll match you with pre-vetted engineers within 48 hours.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-[var(--foreground)] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(26,79,143,0.4)] transition-all">
+          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(26,79,143,0.4)] transition-all">
             Hire Top Talent <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

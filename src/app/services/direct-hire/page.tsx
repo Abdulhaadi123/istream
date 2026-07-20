@@ -268,7 +268,7 @@ export default function DirectHirePage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-[var(--foreground)] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_28px_rgba(26,79,143,0.4)] transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_28px_rgba(26,79,143,0.4)] transition-all"
             >
               Start Sourcing Now <ArrowRight className="w-4 h-4" />
             </Link>
