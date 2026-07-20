@@ -48,9 +48,9 @@ const navLinks: NavLink[] = [
     href: "/services/remote-operations",
     hasDropdown: true,
     dropdownItems: [
-      { name: "Payroll & Invoicing", href: "/services/remote-operations", desc: "Automated multi-currency global payroll", icon: CreditCard },
-      { name: "Localized Compliance", href: "/services/remote-operations", desc: "Risk-free contracting & local labor laws", icon: ShieldCheck },
-      { name: "Hardware & Logistics", href: "/services/remote-operations", desc: "Global IT device delivery & setup", icon: Truck },
+      { name: "Payroll & Invoicing", href: "/services/payroll-invoicing", desc: "Automated multi-currency global payroll", icon: CreditCard },
+      { name: "Localized Compliance", href: "/services/localized-compliance", desc: "Risk-free contracting & local labor laws", icon: ShieldCheck },
+      { name: "Hardware & Logistics", href: "/services/hardware-logistics", desc: "Global IT device delivery & setup", icon: Truck },
     ]
   },
   { name: "How We Vet", href: "/how-we-vet" },
