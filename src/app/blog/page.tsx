@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import BlogListing from "@/components/BlogListing";
 
 export const metadata: Metadata = {
   title: "Blog — iStream Solution | Hiring & Recruitment Insights",
@@ -18,6 +19,7 @@ const posts = [
     readTime: "6 min read",
     date: "Jul 15, 2026",
     accent: "#4f46e5",
+    image: "/blog-remote-hiring.jpg",
   },
   {
     slug: "staff-augmentation-vs-direct-hire",
@@ -28,6 +30,7 @@ const posts = [
     readTime: "5 min read",
     date: "Jul 8, 2026",
     accent: "#0ea5e9",
+    image: "/blog-staff-aug.jpg",
   },
   {
     slug: "vetting-process-technical-talent",
@@ -38,6 +41,7 @@ const posts = [
     readTime: "8 min read",
     date: "Jun 30, 2026",
     accent: "#10b981",
+    image: "/blog-vetting.jpg",
   },
   {
     slug: "global-payroll-remote-teams",
@@ -48,6 +52,7 @@ const posts = [
     readTime: "7 min read",
     date: "Jun 22, 2026",
     accent: "#f59e0b",
+    image: "/blog-payroll.jpg",
   },
   {
     slug: "timezone-aligned-teams-productivity",
@@ -58,6 +63,7 @@ const posts = [
     readTime: "5 min read",
     date: "Jun 14, 2026",
     accent: "#ec4899",
+    image: "/blog-timezone.jpg",
   },
   {
     slug: "it-recruitment-red-flags",
@@ -68,14 +74,13 @@ const posts = [
     readTime: "4 min read",
     date: "Jun 5, 2026",
     accent: "#ef4444",
+    image: "/blog-recruitment.jpg",
   },
 ];
 
 const categories = ["All", "Hiring Guides", "Talent Strategy", "Vetting & Quality", "Operations", "Remote Operations"];
 
 export default function BlogPage() {
-  const [featured, ...rest] = posts;
-
   return (
     <main className="pt-32 pb-20 relative min-h-screen">
       {/* Background glows */}
@@ -101,120 +106,10 @@ export default function BlogPage() {
               elite engineering organizations.
             </p>
           </div>
-
-          {/* Category pills */}
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat, i) => (
-              <span
-                key={cat}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
-                  i === 0
-                    ? "bg-[var(--primary)] text-white border-[var(--primary)]"
-                    : "border-slate-200 text-[var(--text-secondary)] hover:border-[var(--primary)]/40 hover:text-[var(--primary)]"
-                }`}
-              >
-                {cat}
-              </span>
-            ))}
-          </div>
         </div>
 
-        <div className="h-px bg-gradient-to-r from-[var(--primary)]/40 via-slate-200 to-transparent mb-16" />
-
-        {/* ── Featured Post ── */}
-        <div className="mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-slate-400 mb-6 block font-semibold">
-            Featured
-          </span>
-          <Link
-            href="/contact"
-            className="group grid lg:grid-cols-2 gap-0 rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] overflow-hidden hover:border-[var(--primary)]/30 hover:shadow-xl transition-all duration-300"
-          >
-            {/* Left: colored block */}
-            <div
-              className="min-h-[260px] lg:min-h-[360px] relative flex items-end p-8"
-              style={{ background: `linear-gradient(135deg, ${featured.accent}22, ${featured.accent}08)` }}
-            >
-              <div
-                className="absolute top-6 left-6 w-14 h-14 rounded-2xl flex items-center justify-center"
-                style={{ background: featured.accent + "20", border: `1px solid ${featured.accent}30` }}
-              >
-                <Tag className="w-6 h-6" style={{ color: featured.accent }} />
-              </div>
-              <div>
-                <span
-                  className="inline-flex text-[10px] font-bold uppercase px-2.5 py-1 rounded-full mb-3"
-                  style={{ background: featured.accent + "18", color: featured.accent, border: `1px solid ${featured.accent}25` }}
-                >
-                  {featured.category}
-                </span>
-                <div className="flex items-center gap-3 text-xs text-[var(--text-secondary)]">
-                  <Clock className="w-3.5 h-3.5" />
-                  <span>{featured.readTime}</span>
-                  <span className="text-slate-300">·</span>
-                  <span>{featured.date}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: content */}
-            <div className="p-8 lg:p-10 flex flex-col justify-center">
-              <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-extrabold text-[var(--foreground)] tracking-tight leading-tight mb-4 group-hover:text-[var(--primary)] transition-colors">
-                {featured.title}
-              </h2>
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-8">
-                {featured.excerpt}
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] group-hover:gap-3 transition-all">
-                Read Article <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
-          </Link>
-        </div>
-
-        {/* ── Post Grid ── */}
-        <div className="mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-slate-400 mb-8 block font-semibold">
-            Latest Articles
-          </span>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rest.map((post) => (
-              <Link
-                key={post.slug}
-                href="/contact"
-                className="group flex flex-col p-6 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] hover:border-[var(--primary)]/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
-              >
-                {/* Top accent bar */}
-                <div className="h-1 w-10 rounded-full mb-5 transition-all group-hover:w-16" style={{ background: post.accent }} />
-
-                <span
-                  className="inline-flex self-start text-[10px] font-bold uppercase px-2.5 py-1 rounded-full mb-4"
-                  style={{ background: post.accent + "15", color: post.accent, border: `1px solid ${post.accent}22` }}
-                >
-                  {post.category}
-                </span>
-
-                <h3 className="font-[family-name:var(--font-space-grotesk)] text-base font-bold text-[var(--foreground)] tracking-tight leading-snug mb-3 group-hover:text-[var(--primary)] transition-colors flex-1">
-                  {post.title}
-                </h3>
-
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-5 line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-[var(--card-border)]">
-                  <div className="flex items-center gap-2 text-[11px] text-[var(--text-secondary)]">
-                    <Clock className="w-3 h-3" />
-                    <span>{post.readTime}</span>
-                    <span className="text-slate-300">·</span>
-                    <span>{post.date}</span>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-[var(--text-secondary)] group-hover:text-[var(--accent)] group-hover:translate-x-0.5 transition-all" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Render interactive client component for categories & posts */}
+        <BlogListing posts={posts} categories={categories} />
 
         {/* ── Newsletter CTA ── */}
         <div className="relative overflow-hidden rounded-3xl border border-[var(--card-border)] bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/5 p-8 sm:p-14 text-center">
