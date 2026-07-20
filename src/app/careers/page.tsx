@@ -61,7 +61,6 @@ const openRoles = [
   { title: "Global Payroll & Operations Manager", location: "Remote", type: "Full-time", team: "Operations", level: "Senior" },
   { title: "Talent Sourcing Specialist", location: "Remote", type: "Full-time", team: "Recruiting", level: "Mid-Level" },
   { title: "Frontend Engineer (React / Next.js)", location: "Remote", type: "Full-time", team: "Engineering", level: "Mid-Senior" },
-  { title: "Recruiting Intern (Summer 2026)", location: "Remote", type: "Internship", team: "Recruiting", level: "Intern" },
   { title: "Junior Operations Associate", location: "Remote", type: "Full-time", team: "Operations", level: "Entry-Level" },
 ];
 
@@ -246,39 +245,6 @@ export default function CareersPage() {
           </div>
         </div>
 
-        {/* ── Internship Program ── */}
-        <div className="mb-20 relative overflow-hidden rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)]">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-transparent" />
-          <div className="absolute -top-24 -right-24 w-72 h-72 bg-[var(--accent)]/6 rounded-full blur-[100px]" />
-
-          <div className="relative z-10 p-8 sm:p-12">
-            <div className="flex flex-col md:flex-row items-start gap-6 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center shrink-0">
-                <GraduationCap className="w-7 h-7 text-[var(--accent)]" />
-              </div>
-              <div>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] font-bold mb-2 block">University Partnership</span>
-                <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-extrabold text-[var(--foreground)] mb-3 tracking-tight">
-                  Internship Program
-                </h2>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-                  We partner with top engineering universities including <strong className="text-[var(--foreground)]">NED UET, FAST NUCES, UET Lahore</strong>, and <strong className="text-[var(--foreground)]">LUMS</strong> to run structured 12-week internship cohorts in technical recruiting and software engineering. Interns work directly on active sourcing pipelines and operations dashboards under the mentorship of senior partners.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2.5">
-              {["12-Week Cohorts", "Real Production Sprints", "Senior Mentorship", "Full-Time Conversion Offers", "NED / FAST / LUMS / UET"].map((b) => (
-                <span
-                  key={b}
-                  className="px-3.5 py-1.5 text-xs rounded-full bg-slate-50 text-[var(--text-secondary)] border border-white/[0.08] font-semibold"
-                >
-                  {b}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* ── CTA ── */}
         <div className="relative overflow-hidden rounded-3xl border border-[var(--card-border)] bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/5 p-8 sm:p-14 text-center">
           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02]" />
@@ -292,7 +258,7 @@ export default function CareersPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-[var(--foreground)] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_30px_rgba(26,79,143,0.4)] transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_30px_rgba(26,79,143,0.4)] transition-all duration-300 hover:-translate-y-0.5"
             >
               Send Your Resume <ArrowRight className="w-4 h-4" />
             </Link>
