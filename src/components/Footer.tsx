@@ -43,7 +43,7 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/about" },
     { name: "How We Vet", href: "/how-we-vet" },
-    { name: "Careers", href: "/careers" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" },
   ],
 };

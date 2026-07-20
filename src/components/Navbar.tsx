@@ -55,7 +55,7 @@ const navLinks: NavLink[] = [
   },
   { name: "How We Vet", href: "/how-we-vet" },
   { name: "Why iStream", href: "/about" },
-  { name: "Careers", href: "/careers" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
