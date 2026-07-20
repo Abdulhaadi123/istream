@@ -1,28 +1,27 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Laptop, Package, MapPin, Wrench, Clock } from "lucide-react";
+import { ArrowRight, Users, CheckCircle2, ShieldCheck, Heart, Sparkles, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Hardware & Logistics — iStream Solution",
-  description: "Global IT device procurement, configuration, and delivery to your remote team anywhere in the world. MacBooks, ThinkPads, peripherals — handled end-to-end.",
+  title: "Success & Team Support — iStream Solution",
+  description: "Dedicated client success managers, developer onboarding, sprint alignment support, and ongoing team health monitoring for global distributed engineering teams.",
 };
 
 const features = [
-  { icon: Laptop, title: "Device Sourcing & Procurement", description: "We source the exact hardware your team needs — MacBook Pro, ThinkPad, Dell XPS, and peripherals — at competitive bulk pricing." },
-  { icon: Wrench, title: "Pre-Configuration & MDM Enrollment", description: "Devices arrive ready to use. MDM enrollment, VPN setup, software installation, and security policies applied before shipping." },
-  { icon: MapPin, title: "International Delivery", description: "We ship to 30+ countries, handle import duties and customs clearance, and provide door-to-door tracking for every device." },
-  { icon: Package, title: "Return & Lifecycle Management", description: "When a contractor offboards, we coordinate device retrieval, data wipe, and redeployment or secure disposal of the hardware." },
+  { icon: Users, title: "Dedicated Success Managers", description: "Every client is paired with an experienced Success Manager who coordinates onboarding, resolves communication blockers, and ensures cultural alignment." },
+  { icon: MessageSquare, title: "Onboarding & Tool Setup", description: "We manage the complete administrative onboarding, including NDA signings, security briefings, Slack/Jira setup, and environment access." },
+  { icon: ShieldCheck, title: "Ongoing Health Monitoring", description: "Regular pulse surveys and feedback cycles with both engineering managers and developers to monitor team health and maintain retention." },
+  { icon: Heart, title: "Developer Welfare & Perks", description: "We organize local team perks, workspace budgets, and local community meetups to keep remote developers engaged and committed to your project." },
 ];
 
-const devices = [
-  { name: "MacBook Pro M4", spec: "16GB RAM / 512GB SSD", status: "In Transit", dest: "Warsaw, PL", color: "bg-blue-50 text-[var(--primary)]" },
-  { name: "ThinkPad X1 Carbon", spec: "32GB RAM / 1TB SSD", status: "Delivered", dest: "Bogota, CO", color: "bg-emerald-50 text-emerald-700" },
-  { name: "Dell XPS 15", spec: "16GB RAM / 512GB SSD", status: "Configuring", dest: "Lahore, PK", color: "bg-amber-50 text-amber-700" },
-  { name: "Mechanical Keyboard + Monitor", spec: "Peripheral Bundle", status: "Ordered", dest: "Bangalore, IN", color: "bg-purple-50 text-purple-700" },
+const reviews = [
+  { metric: "97%", label: "Average retention rate over 12 months" },
+  { metric: "48 Hours", label: "Average turnaround for replacement or scaling" },
+  { metric: "1-on-1", label: "Monthly developer performance reviews" },
 ];
 
-export default function HardwareLogisticsPage() {
+export default function SuccessSupportPage() {
   return (
     <main className="bg-[var(--background)] min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
@@ -32,30 +31,40 @@ export default function HardwareLogisticsPage() {
           <div className="lg:col-span-7 text-left flex flex-col justify-center">
             <Link href="/services/remote-operations" className="text-sm text-[var(--accent)] hover:underline mb-4 block">← Back to Operations</Link>
             <h1 className="font-[family-name:var(--font-space-grotesk)] text-4xl sm:text-5xl font-bold text-[var(--foreground)] mb-6 leading-[1.1] tracking-tight">
-              Hardware &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">Logistics</span>
+              Success &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">Team Support</span>
             </h1>
             <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed font-medium">
-              Get the right device to your remote team member, anywhere in the world, pre-configured and ready to work from day one.
+              Building a remote team is only the first step. We provide the management support, onboarding assistance, and developer welfare programs to keep your team motivated and aligned.
             </p>
           </div>
 
-          {/* Right — Realistic Photo */}
+          {/* Right — Realistic Team Photo */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl group">
               <Image
-                src="/hardware-logistics.png"
-                alt="iStream Hardware & Logistics — Tech devices packed for international delivery"
+                src="/cloud-devops-illustration.png"
+                alt="iStream Success & Team Support — Collaborative software engineering team coordinating sprint roadmap"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f1e30]/30 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-xl px-3 py-1.5 flex items-center gap-2 shadow">
-                <Clock className="w-3 h-3 text-slate-500" />
-                <span className="text-[10px] font-bold text-slate-800">3-5 Day Global Delivery</span>
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span className="text-[10px] font-bold text-slate-800">97% Talent Retention Rate</span>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Stats strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-20">
+          {reviews.map((r) => (
+            <div key={r.label} className="bg-white border border-slate-200 rounded-2xl p-5 text-center shadow-sm">
+              <p className="text-2xl font-extrabold text-[var(--primary)] font-[family-name:var(--font-space-grotesk)]">{r.metric}</p>
+              <p className="text-xs text-[var(--text-secondary)] mt-1 font-medium">{r.label}</p>
+            </div>
+          ))}
         </div>
 
         {/* Features */}
@@ -74,16 +83,16 @@ export default function HardwareLogisticsPage() {
         {/* CTA */}
         <div className="bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded-3xl p-8 sm:p-12 text-center">
           <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-bold text-white mb-4">
-            Equip your global team from day one
+            Build high-retention remote engineering squads
           </h2>
           <p className="text-white/80 text-sm sm:text-base mb-8 max-w-xl mx-auto">
-            We handle device procurement, configuration, customs, and delivery — you just onboard the developer.
+            Our dedicated success managers align remote developers with your local sprints and company culture seamlessly.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-[var(--primary)] font-bold text-sm hover:bg-slate-50 transition-colors shadow-lg"
           >
-            Request Hardware Setup <ArrowRight className="w-4 h-4" />
+            Schedule Intake Call <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 

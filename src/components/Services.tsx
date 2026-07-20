@@ -57,20 +57,23 @@ export default function Services() {
     {
       title: "Consolidated Payroll",
       icon: CreditCard,
+      href: "/services/payroll-invoicing",
       desc: "Handle global payroll, contractor billing, and statutory disbursements from a unified dashboard. Fund globally and settle in 30+ local currencies.",
       points: ["Single invoicing system", "Automated currency exchanges", "Localized bank transfers"],
     },
     {
       title: "Localized Compliance & EOR",
       icon: ShieldAlert,
+      href: "/services/localized-compliance",
       desc: "Generate compliant employment contracts that secure intellectual property and fully satisfy local labor regulations in every contractor's country.",
       points: ["Automated W-8BEN/W-9 collection", "IP security agreements", "Local labor law tracking"],
     },
     {
-      title: "IT Hardware Delivery",
-      icon: Truck,
-      desc: "Order, configure, and ship work laptops (e.g. MacBooks, ThinkPads) directly to your remote team members globally. We handle customs and setup.",
-      points: ["Global shipping & customs clearance", "Pre-configured security setups", "Device recovery management"],
+      title: "Success & Team Support",
+      icon: Users,
+      href: "/services/success-support",
+      desc: "Assign a dedicated Client Success Manager to monitor remote team health, assist in developer onboarding, and coordinate team performance pulse-checks.",
+      points: ["Dedicated Success Managers", "1-on-1 team health reviews", "97% talent retention average"],
     },
   ];
 
@@ -227,7 +230,7 @@ export default function Services() {
                       </div>
 
                       <Link
-                        href="/services/remote-operations"
+                        href={feat.href}
                         className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[var(--primary)] hover:border-[var(--primary)]/30 transition-all mt-auto"
                       >
                         Explore Features <ArrowRight className="w-3.5 h-3.5" />

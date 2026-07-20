@@ -8,13 +8,13 @@ import {
   UserCheck,
   Cpu,
   Heart,
-  Laptop,
+  Users,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Remote Operations & Workforce Management — iStream Solution",
   description:
-    "Consolidated global payroll, localized compliance, remote onboarding, benefits administration, and hardware provisioning handled end-to-end.",
+    "Consolidated global payroll, localized compliance, remote onboarding, benefits administration, and dedicated client success support handled end-to-end.",
 };
 
 const services = [
@@ -37,10 +37,10 @@ const services = [
       "KYC checks, identity verification, NDA signings, and bank document collections completed in a streamlined digital workflow.",
   },
   {
-    icon: Laptop,
-    title: "Hardware Provisioning",
+    icon: Users,
+    title: "Success & Team Support",
     description:
-      "We source, configure, and ship work laptops and peripherals to your remote workers globally, handling import duties and delivery.",
+      "We assign dedicated Client Success Managers to manage remote developer onboarding, monitor team health, and keep retention high.",
   },
   {
     icon: Heart,
@@ -110,13 +110,13 @@ export default function RemoteOperationsPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed mb-8 max-w-xl">
-                We handle the operational complexity of managing your remote team. From localized compliance and automated global payroll to equipment shipping and onboarding — all in one unified platform.
+                We handle the operational complexity of managing your remote team. From localized compliance and automated global payroll to success support and onboarding — all in one unified platform.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-[var(--foreground)] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_28px_rgba(26,79,143,0.4)] transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_28px_rgba(26,79,143,0.4)] transition-all"
                 >
                   Onboard Your Team <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -129,7 +129,7 @@ export default function RemoteOperationsPage() {
               </div>
 
               <div className="flex flex-wrap gap-3 mt-10">
-                {["Global Payroll", "100% Compliant", "IT Asset Delivery", "Benefits Management"].map((b) => (
+                {["Global Payroll", "100% Compliant", "Success Support", "Benefits Management"].map((b) => (
                   <span
                     key={b}
                     className="text-xs px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[var(--text-secondary)]"

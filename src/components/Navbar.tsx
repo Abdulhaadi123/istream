@@ -50,7 +50,7 @@ const navLinks: NavLink[] = [
     dropdownItems: [
       { name: "Payroll & Invoicing", href: "/services/payroll-invoicing", desc: "Automated multi-currency global payroll", icon: CreditCard },
       { name: "Localized Compliance", href: "/services/localized-compliance", desc: "Risk-free contracting & local labor laws", icon: ShieldCheck },
-      { name: "Hardware & Logistics", href: "/services/hardware-logistics", desc: "Global IT device delivery & setup", icon: Truck },
+      { name: "Success & Team Support", href: "/services/success-support", desc: "Dedicated success managers & team health", icon: Users },
     ]
   },
   { name: "How We Vet", href: "/how-we-vet" },

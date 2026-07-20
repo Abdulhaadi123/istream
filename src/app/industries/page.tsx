@@ -59,11 +59,11 @@ const industries = [
     name: "Logistics & Supply Chain",
     tagline: "Real-Time. Route-Optimized.",
     description:
-      "Deploy specialized developers to construct real-time dispatch systems, fleet GPS tracking, and IoT data pipelines. We handle timesheets, equipment logistics, and payroll dispersals.",
+      "Deploy specialized developers to construct real-time dispatch systems, fleet GPS tracking, and IoT data pipelines. We handle timesheets, developer onboarding, and payroll dispersals.",
     stats: [
       { value: "30+", label: "Countries Sourced" },
       { value: "Real-Time", label: "System Devs" },
-      { value: "Managed", label: "Hardware Delivery" },
+      { value: "Dedicated", label: "Success Managers" },
     ],
     solutions: ["Route Optimization Devs", "Live Tracking Sourcing", "WMS Talent", "IoT Pipelines", "Dispatch Tech Placements"],
     accent: "#f59e0b",

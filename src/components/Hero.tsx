@@ -87,14 +87,13 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            {/* Tagline */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.12 }}
               className="text-base sm:text-lg text-[var(--text-secondary)] mb-8 leading-relaxed max-w-xl"
             >
-              iStream Solutions blends high-end IT headhunting with a comprehensive workforce platform. We hire top-tier developers, distribute localized contracts, deliver IT hardware, and manage international payroll compliance.
+              iStream Solutions blends high-end IT headhunting with a comprehensive workforce platform. We hire top-tier developers, distribute localized contracts, align client success operations, and manage international payroll compliance.
             </motion.p>
 
             {/* CTAs */}

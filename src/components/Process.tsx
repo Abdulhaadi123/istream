@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Search, PenTool, ShieldCheck, Laptop } from "lucide-react";
+import { Search, PenTool, ShieldCheck, Users } from "lucide-react";
 
 const steps = [
   {
@@ -33,13 +33,13 @@ const steps = [
       "We generate compliant international agreements that protect your intellectual property and satisfy local labor legislation automatically.",
   },
   {
-    icon: Laptop,
+    icon: Users,
     number: "04",
-    phase: "Hardware & Activation",
+    phase: "Team Activation & Support",
     duration: "Day 4+",
-    title: "Deployment & Payroll",
+    title: "Deployment & Success Sync",
     description:
-      "We provision and ship pre-configured IT equipment, coordinate contractor onboarding, and activate automated multi-currency global payroll.",
+      "We coordinate developer onboarding, assign a dedicated Success Manager for ongoing health monitoring, and activate automated global payroll.",
   },
 ];
 

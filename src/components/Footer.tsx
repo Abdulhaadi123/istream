@@ -36,7 +36,9 @@ const footerLinks = {
     { name: "Direct Hire Recruiting", href: "/services/direct-hire" },
     { name: "On-Demand Teams", href: "/services/on-demand-teams" },
     { name: "IT Staff Augmentation", href: "/services/staff-augmentation" },
-    { name: "Remote Operations", href: "/services/remote-operations" },
+    { name: "Payroll & Invoicing", href: "/services/payroll-invoicing" },
+    { name: "Localized Compliance", href: "/services/localized-compliance" },
+    { name: "Success & Team Support", href: "/services/success-support" },
   ],
   company: [
     { name: "About Us", href: "/about" },
