@@ -20,17 +20,56 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (formErrors[name]) {
+      setFormErrors({ ...formErrors, [name]: "" });
+    }
+  };
+
+  const validate = () => {
+    const errors: Record<string, string> = {};
+    const nameTrimmed = formData.from_name.trim();
+    if (!nameTrimmed) {
+      errors.from_name = "Full name is required.";
+    } else if (nameTrimmed.length < 2) {
+      errors.from_name = "Name must be at least 2 characters.";
+    }
+
+    const emailTrimmed = formData.from_email.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailTrimmed) {
+      errors.from_email = "Email address is required.";
+    } else if (!emailRegex.test(emailTrimmed)) {
+      errors.from_email = "Please enter a valid email address (e.g. name@company.com).";
+    }
+
+    if (!formData.service) {
+      errors.service = "Please select a service.";
+    }
+
+    const messageTrimmed = formData.message.trim();
+    if (!messageTrimmed) {
+      errors.message = "Project details are required.";
+    } else if (messageTrimmed.length < 10) {
+      errors.message = "Please provide more detail (at least 10 characters).";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
+
     setStatus("sending");
     setErrorMessage("");
 
@@ -39,7 +78,6 @@ export default function ContactPage() {
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      // Fallback demo feedback if keys are not set up in .env yet
       setTimeout(() => {
         setStatus("success");
         setFormData({
@@ -50,6 +88,7 @@ export default function ContactPage() {
           budget: "",
           message: "",
         });
+        setFormErrors({});
         setTimeout(() => setStatus("idle"), 6000);
       }, 1000);
       return;
@@ -60,12 +99,12 @@ export default function ContactPage() {
         serviceId,
         templateId,
         {
-          from_name: formData.from_name,
-          from_email: formData.from_email,
-          company: formData.company || "N/A",
+          from_name: formData.from_name.trim(),
+          from_email: formData.from_email.trim(),
+          company: formData.company.trim() || "N/A",
           service: formData.service || "General Inquiry",
           budget: formData.budget || "Not Specified",
-          message: formData.message,
+          message: formData.message.trim(),
         },
         publicKey
       );
@@ -79,6 +118,7 @@ export default function ContactPage() {
         budget: "",
         message: "",
       });
+      setFormErrors({});
       setTimeout(() => setStatus("idle"), 6000);
     } catch (err: any) {
       console.error("EmailJS Error:", err);
@@ -109,6 +149,7 @@ export default function ContactPage() {
           <div className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
+              noValidate
               className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 sm:p-8 space-y-5"
             >
               {status === "success" && (
@@ -141,10 +182,16 @@ export default function ContactPage() {
                     name="from_name"
                     value={formData.from_name}
                     onChange={handleChange}
-                    required
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-[var(--card-border)] text-[var(--foreground)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30 transition-all text-sm"
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-[var(--foreground)] placeholder-[var(--text-secondary)]/50 focus:outline-none transition-all text-sm ${
+                      formErrors.from_name
+                        ? "border-rose-500 ring-1 ring-rose-500/30"
+                        : "border-[var(--card-border)] focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30"
+                    }`}
                   />
+                  {formErrors.from_name && (
+                    <p className="text-xs text-rose-500 mt-1 font-medium">{formErrors.from_name}</p>
+                  )}
                 </div>
                 <div>
                   <label className="text-sm text-[var(--text-secondary)] mb-1.5 block font-medium">
@@ -155,10 +202,16 @@ export default function ContactPage() {
                     name="from_email"
                     value={formData.from_email}
                     onChange={handleChange}
-                    required
                     placeholder="john@company.com"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-[var(--card-border)] text-[var(--foreground)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30 transition-all text-sm"
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-[var(--foreground)] placeholder-[var(--text-secondary)]/50 focus:outline-none transition-all text-sm ${
+                      formErrors.from_email
+                        ? "border-rose-500 ring-1 ring-rose-500/30"
+                        : "border-[var(--card-border)] focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30"
+                    }`}
                   />
+                  {formErrors.from_email && (
+                    <p className="text-xs text-rose-500 mt-1 font-medium">{formErrors.from_email}</p>
+                  )}
                 </div>
               </div>
 
@@ -178,13 +231,17 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label className="text-sm text-[var(--text-secondary)] mb-1.5 block font-medium">
-                    Service Needed
+                    Service Needed *
                   </label>
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-[var(--card-border)] text-[var(--text-secondary)] focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30 transition-all text-sm appearance-none"
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-[var(--text-secondary)] focus:outline-none transition-all text-sm appearance-none ${
+                      formErrors.service
+                        ? "border-rose-500 ring-1 ring-rose-500/30"
+                        : "border-[var(--card-border)] focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30"
+                    }`}
                   >
                     <option value="">Select a service</option>
                     <option value="Direct Hire Recruiting">Direct Hire Recruiting</option>
@@ -193,6 +250,9 @@ export default function ContactPage() {
                     <option value="Remote Operations">Remote Operations</option>
                     <option value="Other">Other</option>
                   </select>
+                  {formErrors.service && (
+                    <p className="text-xs text-rose-500 mt-1 font-medium">{formErrors.service}</p>
+                  )}
                 </div>
               </div>
 
@@ -223,17 +283,23 @@ export default function ContactPage() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
                   rows={5}
                   placeholder="Tell us about the roles, tech stacks, or operational services you need..."
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-[var(--card-border)] text-[var(--foreground)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30 transition-all text-sm resize-none"
+                  className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-[var(--foreground)] placeholder-[var(--text-secondary)]/50 focus:outline-none transition-all text-sm resize-none ${
+                    formErrors.message
+                      ? "border-rose-500 ring-1 ring-rose-500/30"
+                      : "border-[var(--card-border)] focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/30"
+                  }`}
                 />
+                {formErrors.message && (
+                  <p className="text-xs text-rose-500 mt-1 font-medium">{formErrors.message}</p>
+                )}
               </div>
 
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(124,58,237,0.4)] disabled:opacity-60 transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] hover:shadow-[0_0_24px_rgba(124,58,237,0.4)] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
               >
                 {status === "sending" ? (
                   <>
