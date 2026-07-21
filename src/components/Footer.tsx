@@ -50,9 +50,6 @@ const footerLinks = {
 
 const socials = [
   { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
-  { icon: TwitterIcon, href: "#", label: "Twitter" },
-  { icon: GithubIcon, href: "#", label: "GitHub" },
-  { icon: InstagramIcon, href: "#", label: "Instagram" },
 ];
 
 export default function Footer() {
