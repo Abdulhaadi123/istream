@@ -49,7 +49,7 @@ const footerLinks = {
 };
 
 const socials = [
-  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
+  { icon: LinkedinIcon, href: "https://www.linkedin.com/company/istream-solutions1/?viewAsMember=true", label: "LinkedIn" },
 ];
 
 export default function Footer() {
