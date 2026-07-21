@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7fa;        /* Clean light gray-white — matches logo bg */
-  --foreground: #0f1e30;        /* Deep navy text */
-  --primary: #1a4f8f;           /* Dark navy — dark part of S swirl */
-  --primary-hover: #163f75;
-  --accent: #3198d4;            /* Sky blue — light part of S swirl */
-  --accent-hover: #2080b8;
+  --background: #f8f7ff;        /* Soft purple-white background */
+  --foreground: #1a0533;        /* Deep purple-black text */
+  --primary: #7c3aed;           /* Rich purple — matches logo */
+  --primary-hover: #6d28d9;
+  --accent: #a855f7;            /* Bright lavender accent */
+  --accent-hover: #9333ea;
   --card-bg: #ffffff;           /* Pure white cards */
-  --card-border: #d8e4ef;       /* Soft blue-gray border */
-  --text-secondary: #4d6b85;    /* Medium steel-blue secondary text */
+  --card-border: #e9d5ff;       /* Soft purple border */
+  --text-secondary: #6b7280;    /* Neutral gray secondary text */
   --nav-bg: #ffffff;            /* White navbar */
-  --section-alt: #eaf2fa;       /* Alternate section bg — light blue tint */
+  --section-alt: #f5f3ff;       /* Alternate section bg — light purple tint */
 }
 
 @theme {
@@ -31,14 +31,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f7fa;
+  background: #f8f7ff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c0d4e8;
+  background: #ddd6fe;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3198d4;
+  background: #a855f7;
 }
 
 html, body {
@@ -49,11 +49,11 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle light background texture */
+/* Subtle purple background texture */
 body {
   background-image:
-    radial-gradient(ellipse 100% 50% at 50% -10%, rgba(49, 152, 212, 0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 90% 20%, rgba(26, 79, 143, 0.04) 0%, transparent 50%);
+    radial-gradient(ellipse 100% 50% at 50% -10%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 90% 20%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
   background-attachment: fixed;
 }
 
